@@ -5,15 +5,10 @@ import Header from './Header';
 import List from './List';
 import ItemForm from './ItemForm';
 
-import { GraphqlTest } from './graphql_test';
-
 class UIManager extends React.Component {
 
     constructor() {
         super();
-
-        // GraphQL test
-        GraphqlTest();
 
         // debugger;
         this.state = {
