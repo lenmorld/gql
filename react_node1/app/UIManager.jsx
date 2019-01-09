@@ -5,7 +5,9 @@ import Header from './Header';
 import List from './List';
 import ItemForm from './ItemForm';
 
-import { GraphqlTest } from './graphql_test';
+// import { GraphqlTest } from './graphql_test';
+
+import ApolloApp from './ApolloApp';
 
 class UIManager extends React.Component {
 
@@ -13,7 +15,7 @@ class UIManager extends React.Component {
         super();
 
         // GraphQL test
-        GraphqlTest();
+        // GraphqlTest();
 
         // debugger;
         this.state = {
@@ -115,14 +117,14 @@ class UIManager extends React.Component {
 
     // end of CRUD methods
 
-    searchList(event) {
-        var search_term = event.target.value;
-        // console.log(search_term);
+    // searchList(event) {
+    //     var search_term = event.target.value;
+    //     // console.log(search_term);
 
-        this.setState({
-            search_term: search_term
-        });
-    }
+    //     this.setState({
+    //         search_term: search_term
+    //     });
+    // }
 
     onChangeFormInput(event) {
         // console.log("input changed");
@@ -166,32 +168,38 @@ class UIManager extends React.Component {
         }
 
         // debugger;        
-        var list = this.state.list;
-        var search_term = this.state.search_term;
-        var filtered_list;
+        // var list = this.state.list;
+        // var search_term = this.state.search_term;
+        // var filtered_list;
 
-        if (!search_term) {
-            filtered_list = list;
-        } else {
-            filtered_list = list.filter(function (item) {
-                return item.title.toLowerCase().includes(search_term.toLowerCase());
-            });
-        }
+        // if (!search_term) {
+        //     filtered_list = list;
+        // } else {
+        //     filtered_list = list.filter(function (item) {
+        //         return item.title.toLowerCase().includes(search_term.toLowerCase());
+        //     });
+        // }
 
         return(
             <div>
                 <Header />
+
+                {/* GraphQL */}
+                <hr />
+                <ApolloApp />
+                <hr />
+
                 <div className="options">
-                    <input type="text" 
+                    {/* <input type="text" 
                            placeholder="Filter..." 
                            onChange={ (event) => {
                                         // debugger;
                                         this.searchList(event);
                                        } 
-                                    } />
+                                    } /> */}
                     <span className="add" onClick={() => this.onAddItem()}>[➕]</span>
                 </div>
-                <List list={filtered_list} 
+                <List list={this.state.list} 
                       deleteItem={(item_id) => this.deleteItem(item_id) }
                       editItem={(item_id) => this.editItem(item_id) } />
                 <ItemForm item={this.state.form_fields}
