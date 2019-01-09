@@ -6,6 +6,8 @@ import gql from 'graphql-tag';
 
 import { ApolloProvider } from 'react-apollo';
 
+import List from './graphql/List';
+
 // put this in a HoC e.g. withData
 const client = new ApolloClient({
     uri: '/graphql'
@@ -14,6 +16,7 @@ const client = new ApolloClient({
 
 class ApolloApp extends React.Component {
     componentDidMount() {
+        // TEST
         // test query with plain JS
         client.query({
             query: gql `
@@ -31,6 +34,7 @@ class ApolloApp extends React.Component {
             <ApolloProvider client={client}>
                 <div>
                     <h2>My first Apollo app</h2>
+                    <List />
                 </div>
             </ApolloProvider>
         )
