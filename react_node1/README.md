@@ -39,3 +39,11 @@ apolloServer.applyMiddleware({ app });
 ### Client
 
 Put `ApolloProvider` somewhere high in app, to access GraphQL data
+
+![](screens/2019-01-08-22-27-26.png)
+
+
+
+Object Type
+
+![](screens/2019-01-08-22-36-59.png)
