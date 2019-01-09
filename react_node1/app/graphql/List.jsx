@@ -3,14 +3,16 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 
+const GET_TITLES = gql`
+    {
+        titles
+    }
+`;
+
 const List = () => (
     <div>
         <Query
-            query={gql`
-                {
-                    titles
-                }
-            `}
+            query={GET_TITLES}
         >
             {({ loading, error, data }) => {
                 if (loading) return <p>Loading...</p>;
